@@ -54,12 +54,17 @@ output "lambda_function_arn" {
 
 locals {
   user_pool_id     = aws_cognito_user_pool.user_pool.id
+  user_pool_endPoint = aws_cognito_user_pool.user_pool.endpoint
   client_id        = aws_cognito_user_pool_client.user_pool_client.id
   cognito_domain   = aws_cognito_user_pool_domain.main.id
 }
 
 output "user_pool_id" {
   value = local.user_pool_id
+}
+
+output "user_pool_endPoint" {
+  value = local.user_pool_endPoint
 }
 
 output "client_id" {

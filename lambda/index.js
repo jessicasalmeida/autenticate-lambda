@@ -70,7 +70,7 @@ const handler = (event, context) => __awaiter(void 0, void 0, void 0, function* 
                 'Authorization': accessToken
             },
             body: JSON.stringify({
-                "message": "Usuário autenticado com sucesso!"
+                "isAuthorized": true
             })
         };
     }
@@ -82,7 +82,7 @@ const handler = (event, context) => __awaiter(void 0, void 0, void 0, function* 
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                message: 'Authentication failed' + event
+                "isAuthorized": false
             })
         };
     }

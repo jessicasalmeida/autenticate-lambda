@@ -6,13 +6,17 @@ variable "region" {
 }
 
 variable "access_key" {
-  default     = "ASIARL2CKF6RVDTRTTCU"
+  default     = "ASIARL2CKF6R3J54KXVR"
 }
 
 variable "secret_key" {
-  default     = "OUla8+tOmkeQdaKWw4K5UiEAB4MhDqVDE4+uP3js"
+  default     = "y+EuV87qNwc9qPFd09hKkRH25Fli+ntzwAiUcL0J"
 }
 
 variable "token" {
-  default = "IQoJb3JpZ2luX2VjELj//////////wEaCXVzLXdlc3QtMiJHMEUCIQCQTgaOufpuoyXKCsPbINuvbDh1Dqc5d/K4DtO8oCaXRgIgcYZaVweInDxxZ29fsRDCI20/uEfL3WTW66n5Km7Dy60qtQIIIRACGgwwOTQwOTE0ODkxODciDN46EEhuYBtHFm5zxiqSAt11ERkWePTfNMX6WlbrmFn7NDlIT8ORUNZXVz1OCYvaNqlVhSR5WBojnqtOawXgeCKMYCOVZe+uhbm2Gnxgg5cwPDSO5hLN6SCPeRxInZHcNPByfLGYO8cswSisfO1d3mAj+Yc47J2+kjHos2KT3xqlW9iZLD87HVIofEBuduCPBpK1WYVfDMK94mq3ORjUFJCnrwa0Ln6TiTlv8jE35AOGSK7jttMZ5zPDaQJyiB1O4NPvxDxMFsvh/4lHCBHWirQ9BQ28vfVPM8sWBpNwbRrmLeIUSxlwOShlYUNrjGY19NFHATjY4QG11hTPnGnzK9Yb7VEIloz4SgPgOgeuv8Y+sLr8JJPmN+s+phLMFO9l5J8wisz1sQY6nQHvoASLu8iQL/tBWCJk0g7FP8HRfvS+pz5EZ618WjGemakmODBcSLDQlRjH+BxruXJEcbNRnSgoy5e9rEWWRprJ5qvuhSTX0oQDaJ535Jt1lgicR1n/2OD1oeWEtk2qqmtE7TMNSPqfOPY5x58uZ+vbhi+xdFi3Eyz44Lb+icXURTFeXEMxI/Jyrc3uj2f1w6PxtnzHRCGabSlF6sxB"
+  default = "IQoJb3JpZ2luX2VjEMn//////////wEaCXVzLXdlc3QtMiJIMEYCIQDn5iarQPeutJhsmCiZuqqq2kr+ZReNfh7fGAde+hPfHAIhAJAEYvofDj70Z7g5505yrlOUWYb0Zw/+mCxUYfEBP54GKrUCCDIQAhoMMDk0MDkxNDg5MTg3IgwX42YptLSbXJQyaD0qkgJitysGQCm04TxWQO8KiTm12nNmCoo/8V3XgurLF44/qoay9x8Anat0lvC6MNHM+qx+YPqp0kK3RMhBU+m84NdUMAyIsSpSBZcRrr0wSCSSBtVkzKq+/D0SeDzP6IqwAjo65cdSCuMGfVQe6OdhpDH0zVbltnflwikoc5UdNVrXhSVQuANoob/z/551/mPPuS/Ex5JJn/gGellRoWRLhhWAW+IbG2C8xecF0KRT/U6qrELA2Ud4BQSktyxxO1c1DvvuZdPL/HL9P4LtjoYuQ9g/eqI1ild9kPy731r4wonTr1oqTXA4pYrx8DCqWYFmZ7bjLrFfOaL8x56pt5ebzzSJLUNeUURTcYbH9TbeJwiJjMhSMNeb+bEGOpwBs6M8OV1lMtFvyYUtxNnxpuD24kEn7fYuWI8VNxscNKVuKqanIdqCoOvMloQYbW2ljChuc6rmMiKsAClgpJzH9mDZD9L0kMMwbxgKbgYcjxzuo2ZV6/c5+jHIovFGMYRsPUYxOhR8hB0KMwMU0ecUO3J4hNaRmh+rdbFoUcrs+bDmOgRuFJMwHdHVHrDsHWVgZ/m1IYYGySJRZs1o"
+}
+
+variable "ipGatewayId"{
+  default = ""
 }

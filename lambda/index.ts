@@ -54,7 +54,7 @@ export const handler: Handler = async (event, context): Promise<any> => {
                 'Authorization': accessToken
             },
             body: JSON.stringify({
-                "message": "Usuário autenticado com sucesso!"
+                "message": "Usuário autenticado com sucesso"
             })
         };
     } catch (error) {
@@ -65,7 +65,7 @@ export const handler: Handler = async (event, context): Promise<any> => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                message: 'Authentication failed' + event
+                "message": "Não foi possivel autenticar"
             })
         };
     }
