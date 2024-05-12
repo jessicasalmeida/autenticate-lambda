@@ -10,14 +10,14 @@ resource "aws_cognito_user_pool_domain" "main" {
 resource "aws_cognito_user_pool_client" "user_pool_client" {
   name                     = "user_pool_client"
   user_pool_id             = aws_cognito_user_pool.user_pool.id
-  generate_secret          = true
+  generate_secret          = false
   allowed_oauth_flows_user_pool_client = true
   allowed_oauth_flows      = ["code", "implicit"]
   allowed_oauth_scopes     = ["openid", "email", "profile"]
   callback_urls            = ["https://example.com/callback"]
   logout_urls              = ["https://example.com/logout"]
   supported_identity_providers = ["COGNITO"]
-  explicit_auth_flows      =  ["ALLOW_USER_PASSWORD_AUTH", "ALLOW_REFRESH_TOKEN_AUTH"]
+  explicit_auth_flows      =  ["ALLOW_USER_PASSWORD_AUTH", "ALLOW_REFRESH_TOKEN_AUTH", "ALLOW_ADMIN_USER_PASSWORD_AUTH"]
 
 }
 
@@ -27,18 +27,12 @@ resource "aws_cognito_user" "default_user" {
   password = "Fase!324"
 }
 
-data "archive_file" "lambda_zip" {
-  type        = "zip"
-  output_path = "${path.module}/lambda.zip"
-  source_dir  = "${path.module}/..cd ./lambda"
-}
 
 resource "aws_lambda_function" "autenticacao-lb" {
-  filename         = data.archive_file.lambda_zip.output_path
-  source_code_hash = data.archive_file.lambda_zip.output_base64sha256
+  filename      = "../lambda.zip"
   function_name = "login"
   role          = var.role
-  handler       = "lambda.handler"
+  handler       = "index.handler"
   runtime       = "nodejs18.x"
 
   # Define as variáveis de ambiente
@@ -46,7 +40,10 @@ resource "aws_lambda_function" "autenticacao-lb" {
     variables = {
       USER_POOL_ID   = aws_cognito_user_pool.user_pool.id
       CLIENT_ID      = aws_cognito_user_pool_client.user_pool_client.id
-      COGNITO_DOMAIN = aws_cognito_user_pool_domain.main.id
+      REGION = var.region
+      ACCESS_KEY_ID = var.access_key
+      SECRET_ACCESS_KEY = var.secret_key
+      TOKEN = var.token
     }
   }
 }
@@ -57,12 +54,17 @@ output "lambda_function_arn" {
 
 locals {
   user_pool_id     = aws_cognito_user_pool.user_pool.id
+  user_pool_endPoint = aws_cognito_user_pool.user_pool.endpoint
   client_id        = aws_cognito_user_pool_client.user_pool_client.id
   cognito_domain   = aws_cognito_user_pool_domain.main.id
 }
 
 output "user_pool_id" {
   value = local.user_pool_id
+}
+
+output "user_pool_endPoint" {
+  value = local.user_pool_endPoint
 }
 
 output "client_id" {
