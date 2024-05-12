@@ -1,0 +1,31 @@
+name: Terraform
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v3
+      
+    - name: Initialize Terraform
+      run: |
+        cd aws
+        terraform init
+
+    - name: Plan Terraform changes
+      run: terraform plan -no-color
+
+    - name: Apply Terraform changes
+      run: terraform apply -auto-approve
+      if: github.event_name == 'push'  # Aplicar apenas em push, não em pull requests
