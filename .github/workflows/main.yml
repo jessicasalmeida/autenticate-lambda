@@ -19,13 +19,14 @@ jobs:
       uses: hashicorp/setup-terraform@v3
       
     - name: Initialize Terraform
-      run: |
-        cd aws
-        terraform init
+      working-directory: ./aws
+      run: terraform init
 
     - name: Plan Terraform changes
+      working-directory: ./aws
       run: terraform plan -no-color
 
     - name: Apply Terraform changes
+      working-directory: ./aws
       run: terraform apply -auto-approve
       if: github.event_name == 'push'  # Aplicar apenas em push, não em pull requests
