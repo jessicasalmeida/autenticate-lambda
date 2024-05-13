@@ -7,7 +7,7 @@ Projeto destinado a criar infra na aws para lambda e cognito para o repo https:/
 ## Preparando o ambiente
 
 ### Configurando Variaveis de Ambiente
-- Passo 1: Alterar as credencias da AWS no file provider.tf
+- Passo 1: Alterar as credencias da AWS no file vars.tf
 
 ### Opção - Executando em ambiente Terraform
 - Passo 1: Executar o comando: terraform init
